@@ -2,20 +2,17 @@ const zikbot = require('../../functions/log')
 module.exports = {
     run : async (client, message) => {
 
-        await client.user.setActivity('Ping');
-        message.delete()
+        let activity = client.user.presence.activities[0].name;
+
+        await client.user.setActivity(client.commands.find(cmd => cmd.help.name).help.name);
         const msg = await message.channel.send('Ping!');
         msg.edit(
             `Pong!
             Latence du serveur : ${msg.createdTimestamp - message.createdTimestamp}ms
             Latence du bot : ${Math.round(client.ws.ping)}ms`
         )
-
-        zikbot.getCommandName
-
         // zikbot.log( client, message, client.commands.find(cmd => cmd.help.name).help.name );
-
-        await client.user.setActivity('Idle');
+        await client.user.setActivity(activity);
 
 
     }, help : {
