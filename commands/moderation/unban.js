@@ -17,7 +17,7 @@ module.exports = {
         aliases : ['unban','Unban','UNBAN'],
         category : 'moderation',
         description : 'UbBan un utilisateur',
-        usage : '<@user> [<reason>]',
+        usage : '<user_id>',
         cd : 1,
         isUserAdmin : true,
         permission : true,
